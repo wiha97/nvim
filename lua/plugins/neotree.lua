@@ -14,8 +14,7 @@ return {
             },
         },
     },
-    config = function()
-        vim.keymap.set('n', '<C-e>', ":Neotree toggle<CR>", {silent = true})
-    end
+    -- config = function()
+    -- end
 }
 

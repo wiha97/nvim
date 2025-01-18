@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -21,7 +21,12 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 -- vim.keymap.set('n', '<C-c>', 'gcc', {})
-vim.keymap.set('n', '<C-A-d>', ':echo "Ctrl+Alt+d pressed"<CR>', { noremap = true, silent = true })
+-- vim.keymap.set("n", "<C-A-d>", ':echo "Ctrl+Alt+d pressed"<CR>', { noremap = true, silent = true })
+-- vim.keymap.set("n", '<C-n>', )
 
 require("vimopts")
+require("keymaps")
 require("lazy").setup("plugins")
+-- require("solarized-osaka").setup()
+-- vim.cmd.colorscheme("solarized-osaka")
+vim.cmd.colorscheme("catppuccin")

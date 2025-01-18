@@ -2,8 +2,8 @@ return {
   {
     "williamboman/mason.nvim",
     config = function()
-        require("mason").setup()
-    end
+      require("mason").setup()
+    end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -11,26 +11,27 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
-          "jdtls"
-        }
+          "jdtls",
+          "hyprls"
+        },
       })
-    end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspc = require("lspconfig")
 
       lspc.lua_ls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       lspc.jdtls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
-      vim.keymap.set('n', 'I', vim.lsp.buf.hover, {})
-      vim.keymap.set('n', 'gD', vim.lsp.buf.definition, {})
-      vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
-    end
-  }
+      lspc.hyprls.setup({
+        capabilities = capabilities,
+      })
+    end,
+  },
 }
