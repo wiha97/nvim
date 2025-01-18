@@ -1,4 +1,3 @@
-
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -21,11 +20,8 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-
+-- vim.keymap.set('n', '<C-c>', 'gcc', {})
+vim.keymap.set('n', '<C-A-d>', ':echo "Ctrl+Alt+d pressed"<CR>', { noremap = true, silent = true })
 
 require("vimopts")
 require("lazy").setup("plugins")
-
-
-
-

@@ -6,9 +6,16 @@ return {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim"
     },
+    opts = {
+        filesystem = {
+            filtered_items = {
+                visible = false,
+                hide_dotfiles = false,
+            },
+        },
+    },
     config = function()
-        -- vim.keymap.set('n', '<C-e>', ":Neotree filesystem reveal left<CR>", {})
-        vim.keymap.set('n', '<C-e>', ":Neotree toggle<CR>", {})
+        vim.keymap.set('n', '<C-e>', ":Neotree toggle<CR>", {silent = true})
     end
 }
 
