@@ -12,7 +12,7 @@ return {
         visible = false,
         hide_dotfiles = false,
       },
-    },
+    }
   },
   config = function()
     require("neo-tree").setup({

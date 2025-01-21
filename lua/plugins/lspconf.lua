@@ -12,24 +12,50 @@ return {
         ensure_installed = {
           "lua_ls",
           "jdtls",
-          "hyprls"
+          "hyprls",
+          "yamlls",
+          "bashls"
         },
+        automatic_installation = true
       })
     end,
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies ={
+      {"antosha417/nvim-lsp-file-operations", config = true},
+    },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspc = require("lspconfig")
 
+      lspc.bashls.setup({
+        capabilities = capabilities,
+        filetypes = { "sh", "zsh", "bash" }
+      })
       lspc.lua_ls.setup({
         capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = {"vim"}
+            },
+            workspace = {
+              library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.stdpath("config") .. "/lua"] = true,
+              }
+            }
+          }
+        }
       })
       lspc.jdtls.setup({
         capabilities = capabilities,
       })
       lspc.hyprls.setup({
+        capabilities = capabilities,
+      })
+      lspc.yamlls.setup({
         capabilities = capabilities,
       })
     end,
