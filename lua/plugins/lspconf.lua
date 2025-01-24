@@ -14,7 +14,8 @@ return {
           "jdtls",
           "hyprls",
           "yamlls",
-          "bashls"
+          "bashls",
+          "harper_ls"
         },
         automatic_installation = true
       })
@@ -56,6 +57,9 @@ return {
         capabilities = capabilities,
       })
       lspc.yamlls.setup({
+        capabilities = capabilities,
+      })
+      lspc.harper_ls.setup({
         capabilities = capabilities,
       })
     end,

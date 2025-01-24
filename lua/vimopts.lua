@@ -5,6 +5,7 @@ vim.cmd("set shiftwidth=2")
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+--  Selection copy <3
 vim.api.nvim_create_autocmd("CursorMoved", {
   desc = "Keep * synced with selection",
   callback = function()
@@ -14,3 +15,5 @@ vim.api.nvim_create_autocmd("CursorMoved", {
     end
   end,
 })
+
+
