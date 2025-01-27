@@ -5,6 +5,12 @@ vim.cmd("set shiftwidth=2")
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function ()
+    vim.cmd("Gitsign toggle_current_line_blame")
+  end
+})
+
 --  Selection copy <3
 vim.api.nvim_create_autocmd("CursorMoved", {
   desc = "Keep * synced with selection",

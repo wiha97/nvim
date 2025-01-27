@@ -6,6 +6,7 @@ return {
 
 		-- transparent.clear_prefix("BufferLine")
 		transparent.clear_prefix("Buffer")
+		transparent.clear_prefix("NeoTree")
 		transparent.clear_prefix("lualine")
 		transparent.setup({
 			-- table: default groups

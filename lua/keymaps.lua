@@ -1,9 +1,25 @@
 --  Clear search highlight
 vim.keymap.set("n", "<leader>cs", ":nohlsearch<CR>", {})
 
+--  Autoformat
+vim.keymap.set("n", "<leader>p", ":%!jq<cr>", {})
+
 -- Toggle Neotree
 vim.keymap.set({ "n", "i" }, "<C-e>", "<C-c>:Neotree toggle left<CR>", { silent = true })
 vim.keymap.set({ "n", "i" }, "<A-e>", "<C-c>:Neotree toggle right<CR>", { silent = true })
+
+--  BarBar
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+-- Move to previous/next
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
+
+
+--  Gitsigns
+vim.keymap.set({'n', 'i'}, '<C-g>', '<Cmd>Gitsigns preview_hunk<CR>', opts)
+
+
 
 -- Toggle NvimTree
 -- vim.keymap.set({ "n", "i" }, "<A-e>", "<C-c>:NvimTreeToggle<CR>", { silent = true })
