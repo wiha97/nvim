@@ -1,5 +1,15 @@
 return {
 	{
+		"zaldih/themery.nvim",
+		lazy = false,
+		config = function()
+			require("themery").setup({
+				themes = { "catppuccin", "gruvbox-material", "solarized-osaka", "everforest", "tokyonight" }, -- Your list of installed colorschemes.
+				livePreview = true, -- Apply theme while picking. Default to true.
+			})
+		end,
+	},
+	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -12,6 +22,7 @@ return {
 	},
 	{
 		"sainnhe/gruvbox-material",
+    name = "gruvbox",
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -32,4 +43,11 @@ return {
 			-- vim.cmd.colorscheme("everforest")
 		end,
 	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	
 }

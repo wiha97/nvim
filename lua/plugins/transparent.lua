@@ -4,7 +4,6 @@ return {
 		-- Optional, you don't have to run setup.
 		local transparent = require("transparent")
 
-		-- transparent.clear_prefix("BufferLine")
 		transparent.clear_prefix("Buffer")
 		transparent.clear_prefix("NeoTree")
 		transparent.clear_prefix("lualine")
@@ -37,27 +36,13 @@ return {
 				"StatusLineNC",
 				"EndOfBuffer",
 			},
-			-- table: additional groups that should be cleared
 			extra_groups = {
 				"NeoTreeNormal",
 				"NeoTreeNormalNC",
 				"NvimTreeNormal",
 				"NeoTreeWinSeparator",
-				-- "BufferOffset",
-				-- "BufferTabpages",
-				-- "BufferTabpagesSep",
-				-- "BufferTabpageFill",
-				-- "BufferCurrent",
-				-- "BufferAlternate",
-				-- "BufferInactive",
-				-- "BufferVisible",
-				--     "BufferSign",
-				--     "BufferSignRight"
 			},
-			-- table: groups you don't want to clear
-			exclude_groups = {
-				-- "BufferCurrent",
-			},
+			exclude_groups = { },
 			-- function: code to be executed after highlight groups are cleared
 			-- Also the user event "TransparentClear" will be triggered
 			on_clear = function() end,
