@@ -4,6 +4,10 @@ vim.keymap.set("n", "<leader>cs", ":nohlsearch<CR>", {})
 --  Autoformat
 vim.keymap.set("n", "<leader>p", ":%!jq<cr>", {})
 
+vim.keymap.set({"n", "i"}, "<S-k>", "<C-c>:%s//&\r<CR>", {})
+
+-- vim.keymap.set("n", "<S-k>", "<Cmd>%s/ /\r/<CR>", {})
+
 -- Toggle Neotree
 vim.keymap.set({ "n", "i" }, "<C-e>", "<C-c>:Neotree toggle left<CR>", { silent = true })
 vim.keymap.set({ "n", "i" }, "<A-e>", "<C-c>:Neotree toggle right<CR>", { silent = true })
