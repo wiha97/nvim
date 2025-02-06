@@ -39,10 +39,10 @@ return {
           ["<Tab>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
         sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
           { name = "buffer" },
           { name = "luasnip" }, -- For luasnip users.
           { name = 'render-markdown' },
-          { name = 'nvim_lsp' },
           { name = "path" },
           -- { name = 'vsnip' }, -- For vsnip users.
           -- { name = 'ultisnips' }, -- For ultisnips users.
