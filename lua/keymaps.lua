@@ -1,32 +1,55 @@
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 --  Clear search highlight
 vim.keymap.set("n", "<leader>cs", ":nohlsearch<CR>", {})
 
 --  Autoformat
 vim.keymap.set("n", "<leader>p", ":%!jq<cr>", {})
 
-vim.keymap.set({"n", "i"}, "<S-k>", "<C-c>:%s//&\r<CR>", {})
+-- vim.keymap.set({"n", "i"}, "<S-k>", "<C-c>:%s//&\r<CR", {})
+-- vim.keymap.set({"n", "v"}, "<S-k>", ":s/ /\r/g", {})
+-- vim.keymap.set({"n", "v"}, "<S-k>", ":s/", {})
 
--- vim.keymap.set("n", "<S-k>", "<Cmd>%s/ /\r/<CR>", {})
+--#region DeepSeek provided
+-- Define a function that will capture the selected text and perform the substitution
+local function split_line_at_char()
+  -- Get the currently selected text
+  local visual_start = vim.fn.getpos("'<")
+  local visual_end = vim.fn.getpos("'>")
+  
+  -- Extract the character to look for from the first line of the selection
+  local char = vim.fn.nr2char(vim.fn.getchar())
+
+  -- Use 'silent' to avoid showing the search command in the status line
+  vim.cmd('silent /' .. char)
+  
+  -- Perform the substitution based on what was found
+  for lnum = visual_start[2], visual_end[2] do
+    local current_line = vim.fn.getline(lnum)
+    if string.find(current_line, char, 1, true) then
+      vim.cmd(':' .. lnum .. 's/\\v[' .. char .. ']+/' .. char .. '\\r/g')
+    end
+  end
+end
+
+-- Map the function to a key sequence in visual mode, e.g., <Leader>s
+vim.api.nvim_set_keymap('v', '<Leader>s', '', { callback = split_line_at_char, desc = 'Split line at selected character' })
+--#endregion DeepSeek
 
 -- Toggle Neotree
 vim.keymap.set({ "n", "i" }, "<C-e>", "<C-c>:Neotree toggle left<CR>", { silent = true })
 vim.keymap.set({ "n", "i" }, "<A-e>", "<C-c>:Neotree toggle right<CR>", { silent = true })
 
 --  BarBar
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+
 -- Move to previous/next
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
+map('n', '<A-x>', '<Cmd>BufferClose<CR>', opts)
 
 
 --  Gitsigns
 vim.keymap.set({'n', 'i'}, '<C-g>', '<Cmd>Gitsigns preview_hunk<CR>', opts)
-
-
-
--- Toggle NvimTree
--- vim.keymap.set({ "n", "i" }, "<A-e>", "<C-c>:NvimTreeToggle<CR>", { silent = true })
 
 -- LSP info
 -- "neovim/nvim-lspconfig",
@@ -34,9 +57,6 @@ vim.keymap.set({ "n", "i" }, "<A><A>", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "gD", vim.lsp.buf.definition, {})
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
--- Selection copy to system buffer <3
--- vim.cmd("set mouse=a")
--- vim.cmd('vmap <LeftRelease> "*ygv')
 
 --  Comment toggle
 vim.cmd("map <leader>cc gcc")
