@@ -4,8 +4,17 @@ return {
 		lazy = false,
 		config = function()
 			require("themery").setup({
-				themes = { "catppuccin", "gruvbox-material", "solarized-osaka", "everforest", "tokyonight", "nightfox"}, -- Your list of installed colorschemes.
-				livePreview = true, -- Apply theme while picking. Default to true.
+				themes = {
+					"catppuccin",
+					"gruvbox-material",
+					"solarized-osaka",
+					"everforest",
+					"tokyonight",
+					"nightfox",
+					"kanagawa-wave",
+				},
+				-- your list of installed colorschemes.
+				livepreview = true, -- apply theme while picking. default to true.
 			})
 		end,
 	},
@@ -48,5 +57,8 @@ return {
 		lazy = false,
 		priority = 1000,
 		name = "nightfox",
+	},
+	{
+		"rebelot/kanagawa.nvim",
 	},
 }

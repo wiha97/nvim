@@ -33,7 +33,7 @@ local function split_line_at_char()
 end
 
 -- Map the function to a key sequence in visual mode, e.g., <Leader>s
-vim.api.nvim_set_keymap('v', '<Leader>s', '', { callback = split_line_at_char, desc = 'Split line at selected character' })
+vim.api.nvim_set_keymap('v', '<leader>s', '', { callback = split_line_at_char, desc = 'Split line at selected character' })
 --#endregion DeepSeek
 
 -- Toggle Neotree
@@ -47,6 +47,12 @@ map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<A-x>', '<Cmd>BufferClose<CR>', opts)
 
+-- Split
+map('n', '<leader>s', '<Cmd>vsplit<CR>', opts)
+map('n', '<A-l>', '<Cmd>vertical resize +5<CR>', opts)
+map('n', '<A-h>', '<Cmd>vertical resize -5<CR>', opts)
+
+
 
 --  Gitsigns
 vim.keymap.set({'n', 'i'}, '<C-g>', '<Cmd>Gitsigns preview_hunk<CR>', opts)
@@ -59,7 +65,7 @@ vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
 
 --  Comment toggle
-vim.cmd("map <leader>cc gcc")
+vim.cmd("map <leader>cc gcc<CR>")
 --  Clear word, set in insert
 vim.cmd("nmap <C-x> caw")
 vim.keymap.set("i", "<C-x>", "<cmd>norm diwli<CR>", { silent = true })

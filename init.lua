@@ -25,6 +25,7 @@ vim.g.maplocalleader = "\\"
 
 require("vimopts")
 require("keymaps")
+require("indents")
 require("lazy").setup("plugins")
 -- require("solarized-osaka").setup()
 -- vim.cmd.colorscheme("solarized-osaka")

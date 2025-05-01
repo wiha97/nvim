@@ -37,10 +37,10 @@ return {
 				"EndOfBuffer",
 			},
 			extra_groups = {
-				"NeoTreeNormal",
-				"NeoTreeNormalNC",
-				"NvimTreeNormal",
-				"NeoTreeWinSeparator",
+				-- "NeoTreeNormal",
+				-- "NeoTreeNormalNC",
+				-- "NvimTreeNormal",
+				-- "NeoTreeWinSeparator",
 			},
 			exclude_groups = { },
 			-- function: code to be executed after highlight groups are cleared
