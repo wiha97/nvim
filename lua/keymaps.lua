@@ -59,7 +59,8 @@ vim.keymap.set({'n', 'i'}, '<C-g>', '<Cmd>Gitsigns preview_hunk<CR>', opts)
 
 -- LSP info
 -- "neovim/nvim-lspconfig",
-vim.keymap.set({ "n", "i" }, "<A><A>", vim.lsp.buf.hover, {})
+vim.keymap.set({ "n" }, "<leader>i", vim.lsp.buf.hover, {})
+vim.keymap.set({ "n" }, "<leader>r", vim.lsp.buf.references, {})
 vim.keymap.set("n", "gD", vim.lsp.buf.definition, {})
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
