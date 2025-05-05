@@ -9,11 +9,11 @@ return {
     },
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
-    end
+    end,
   },
   {
-    'hrsh7th/cmp-nvim-lsp',
-    config = true
+    "hrsh7th/cmp-nvim-lsp",
+    config = true,
   },
   {
     "hrsh7th/nvim-cmp",
@@ -39,15 +39,28 @@ return {
           ["<Tab>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
         sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
           { name = "buffer" },
+          { name = "nvim_lsp" },
           { name = "luasnip" }, -- For luasnip users.
-          { name = 'render-markdown' },
+          { name = "render-markdown" },
           { name = "path" },
           -- { name = 'vsnip' }, -- For vsnip users.
           -- { name = 'ultisnips' }, -- For ultisnips users.
           -- { name = 'snippy' }, -- For snippy users.
         }),
+        sorting = {
+          comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.locality,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+          },
+        },
       })
     end,
   },
