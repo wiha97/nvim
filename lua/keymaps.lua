@@ -49,6 +49,7 @@ map('n', '<A-x>', '<Cmd>BufferClose<CR>', opts)
 
 -- Split
 map('n', '<leader>s', '<Cmd>vsplit<CR>', opts)
+map('n', '<leader>s', '<Cmd>vsplit<CR><C-w>w', opts)
 map('n', '<A-l>', '<Cmd>vertical resize +5<CR>', opts)
 map('n', '<A-h>', '<Cmd>vertical resize -5<CR>', opts)
 
@@ -70,6 +71,10 @@ vim.cmd("map <leader>cc gcc<CR>")
 --  Clear word, set in insert
 vim.cmd("nmap <C-x> caw")
 vim.keymap.set("i", "<C-x>", "<cmd>norm diwli<CR>", { silent = true })
+
+-- Del replace
+-- vim.keymap.set({"n", "i"}, "<A-d>", "<C-c>@ra", {})
+vim.keymap.set("n","<S-r>","*<S-n>cgn",{})
 
 --  Quit
 vim.keymap.set({ "n", "i", "v" }, "<C-q>", "<C-c>:q<CR>", {})
@@ -94,4 +99,4 @@ vim.keymap.set("i", "<A-S-w>", "<cmd>norm goi<CR>", {})
 
 --  End-of-file
 vim.cmd("nmap <A-S-s> <S-g>i")
-vim.keymap.set("i", "<A-S-s>", "<C-c><S-g>i", {})
+vim.keymap.set("i", "<A-S-s>", "<C-c><S-g>", {})

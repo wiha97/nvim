@@ -16,6 +16,11 @@ return {
   },
   config = function()
     require("neo-tree").setup({
+      window = {
+        mappings = {
+          ['<S-e>'] = "expand_all_nodes",
+        }
+      },
       event_handlers = {
         {
           event = "file_open_requested",
