@@ -1,24 +1,5 @@
 return {
 	{
-		"zaldih/themery.nvim",
-		lazy = false,
-		config = function()
-			require("themery").setup({
-				themes = {
-					"catppuccin",
-					"gruvbox-material",
-					"solarized-osaka",
-					"everforest",
-					"tokyonight",
-					"nightfox",
-					"kanagawa-wave",
-				},
-				-- your list of installed colorschemes.
-				livepreview = true, -- apply theme while picking. default to true.
-			})
-		end,
-	},
-	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -60,5 +41,32 @@ return {
 	},
 	{
 		"rebelot/kanagawa.nvim",
+	},
+  {
+    "joshdick/onedark.vim",
+  },
+  {
+    "KeitaNakamura/neodark.vim"
+  },
+	{
+		"zaldih/themery.nvim",
+		lazy = false,
+		config = function()
+			require("themery").setup({
+				themes = {
+					"catppuccin",
+					"gruvbox-material",
+					"solarized-osaka",
+					"everforest",
+					"tokyonight",
+					"nightfox",
+					"kanagawa-wave",
+          "onedark",
+          "neodark"
+				},
+				-- your list of installed colorschemes.
+				livepreview = true, -- apply theme while picking. default to true.
+			})
+		end,
 	},
 }
