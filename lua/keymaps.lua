@@ -48,7 +48,6 @@ map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<A-x>', '<Cmd>BufferClose<CR>', opts)
 
 -- Split
-map('n', '<leader>s', '<Cmd>vsplit<CR>', opts)
 map('n', '<leader>s', '<Cmd>vsplit<CR><C-w>w', opts)
 map('n', '<A-l>', '<Cmd>vertical resize +5<CR>', opts)
 map('n', '<A-h>', '<Cmd>vertical resize -5<CR>', opts)
