@@ -31,7 +31,7 @@ return {
       local lspc = require("lspconfig")
       local mason = require("mason-lspconfig")
 
-      mason.setup_handlers({
+      mason.setup({
         function(server_name)
           lspc[server_name].setup({
             capabilities = capabilities,
