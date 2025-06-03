@@ -8,15 +8,29 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {
+      local insArr = {
           "lua_ls",
           "jdtls",
-          "hyprls",
-          "yamlls",
-          "bashls",
-          "html",
-        },
+      }
+      if cmdExists("npm") then
+        table.insert(insArr, "yamlls")
+        table.insert(insArr, "bashls")
+        table.insert(insArr, "html")
+      end
+      if cmdExists("go") then
+        table.insert(insArr, "hyprls")
+      end
+
+      require("mason-lspconfig").setup({
+        ensure_installed= insArr,
+        -- ensure_installed = {
+        --   "lua_ls",
+        --   "jdtls",
+        --   "hyprls",
+        --   "yamlls",
+        --   "bashls",
+        --   "html",
+        -- },
         automatic_installation = true,
       })
     end,

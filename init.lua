@@ -23,6 +23,10 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+
+function cmdExists(cmd)
+  return os.execute("command -v " .. cmd .. " > /dev/null 2>&1") == 0
+end
 require("vimopts")
 require("keymaps")
 require("indents")
