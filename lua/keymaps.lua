@@ -1,5 +1,8 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+local function setmap(modes, map, action)
+  vim.keymap.set(modes, map, action, opts)
+end
 --  Clear search highlight
 vim.keymap.set("n", "<leader>cs", ":nohlsearch<CR>", {})
 
@@ -63,7 +66,7 @@ vim.keymap.set({ "n" }, "<leader>i", vim.lsp.buf.hover, {})
 vim.keymap.set({ "n" }, "<leader>r", vim.lsp.buf.references, {})
 vim.keymap.set("n", "gD", vim.lsp.buf.definition, {})
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-
+-- vim.keymap.set("n", "<leader>I", vim.lsp.buf.implementation(),{})
 
 --  Comment toggle
 vim.cmd("map <leader>cc gcc<CR>")
@@ -78,6 +81,9 @@ vim.keymap.set("n","<S-r>","*<S-n>cgn",{})
 --  Quit
 vim.keymap.set({ "n", "i", "v" }, "<C-q>", "<C-c>:q<CR>", {})
 vim.keymap.set({ "n", "i", "v" }, "<C-A-q>", "<C-c>:q!<CR>", {})
+
+-- New
+vim.keymap.set("n", "<A-n>", ":rightbelow vnew<CR>", opts)
 
 --  Save
 vim.keymap.set({ "n", "i" }, "<C-s>", "<C-c>:w<CR>", {})
