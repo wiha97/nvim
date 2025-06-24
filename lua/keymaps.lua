@@ -13,6 +13,8 @@ vim.keymap.set("n", "<leader>p", ":%!jq<cr>", {})
 -- vim.keymap.set({"n", "v"}, "<S-k>", ":s/ /\r/g", {})
 -- vim.keymap.set({"n", "v"}, "<S-k>", ":s/", {})
 
+
+vim.keymap.set("n", "<Space><Space>", ":lua require('toggle-checkbox').toggle()<CR>", {})
 --#region DeepSeek provided
 -- Define a function that will capture the selected text and perform the substitution
 local function split_line_at_char()
