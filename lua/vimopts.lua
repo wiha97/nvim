@@ -5,6 +5,10 @@ vim.cmd("set shiftwidth=2")
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+-- Wholeword linebreak
+vim.opt.wrap = true
+vim.opt.linebreak = true
+
 -- vim.api.nvim_create_autocmd("FileType", {
 -- 	pattern = {"java", "cs"},
 -- 	callback = function()
@@ -31,3 +35,36 @@ vim.api.nvim_create_autocmd("CursorMoved", {
     end
   end,
 })
+-- Diagnostics
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+})
+-- vim.api.nvim_create_autocmd({ "CursorHold" }, {
+--     pattern = "*",
+--     callback = function()
+--         for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+--             if vim.api.nvim_win_get_config(winid).zindex then
+--                 return
+--             end
+--         end
+--         vim.diagnostic.open_float({
+--             scope = "cursor",
+--             focusable = false,
+--             close_events = {
+--                 "CursorMoved",
+--                 "CursorMovedI",
+--                 "BufHidden",
+--                 "InsertCharPre",
+--                 "WinLeave",
+--             },
+--         })
+--     end
+-- })
+
+-- vim.cmd([[
+vim.cmd("highlight BufferCurrent guibg=#282828 guifg=#ffffff") -- Change #282828 to your desired opaque color
+vim.cmd("highlight BufferCurrentIndex guibg=#282828 guifg=#ffffff")
+vim.cmd("highlight BufferCurrentMod guibg=#282828 guifg=#ffffff")
+-- ]])
+
