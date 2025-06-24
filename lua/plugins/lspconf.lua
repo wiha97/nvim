@@ -10,7 +10,6 @@ return {
     config = function()
       local insArr = {
           "lua_ls",
-          "jdtls",
       }
       if cmdExists("npm") then
         table.insert(insArr, "yamlls")
@@ -19,6 +18,9 @@ return {
       end
       if cmdExists("go") then
         table.insert(insArr, "hyprls")
+      end
+      if cmdExists("javac") then
+        table.insert(insArr, "jdtls")
       end
 
       require("mason-lspconfig").setup({
@@ -41,24 +43,29 @@ return {
       { "antosha417/nvim-lsp-file-operations", config = true },
     },
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local caps = require("cmp_nvim_lsp").default_capabilities()
       local lspc = require("lspconfig")
       local mason = require("mason-lspconfig")
 
       mason.setup({
         function(server_name)
           lspc[server_name].setup({
-            capabilities = capabilities,
+            capabilities = caps,
           })
         end,
+        lspc.ts_ls.setup({
+          capabilities = caps,
+          filetypes = { "typescript", "javascript", "js"},
+          root_dir = function() return vim.loop.cwd() end
+        }),
 
         lspc.bashls.setup({
-          capabilities = capabilities,
+          capabilities = caps,
           cmd = { "bash-language-server", "start" },
           filetypes = { "sh", "zsh", "bash" },
         }),
         lspc.omnisharp.setup({
-          capabilities = capabilities,
+          capabilities = caps,
           cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
           enable_import_completion = true,
           organize_imports_on_format = true,
