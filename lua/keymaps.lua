@@ -3,6 +3,16 @@ local opts = { noremap = true, silent = true }
 local function setmap(modes, map, action)
   vim.keymap.set(modes, map, action, opts)
 end
+
+--  Toggles in-line diagnostic text
+local function toggleDiag()
+  local isToggled = not vim.diagnostic.config().virtual_text
+  vim.diagnostic.config({
+    virtual_text = isToggled,
+  })
+end
+vim.keymap.set("n", "<leader>td", '', { callback = toggleDiag})
+
 --  Clear search highlight
 vim.keymap.set("n", "<leader>cs", ":nohlsearch<CR>", {})
 
