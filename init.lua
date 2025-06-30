@@ -31,6 +31,12 @@ require("vimopts")
 require("keymaps")
 require("indents")
 require("lazy").setup("plugins")
+require("mason").setup({
+	registries = {
+		"github:mason-org/mason-registry",
+		"github:Crashdummyy/mason-registry",
+	},
+})
 -- require("solarized-osaka").setup()
 -- vim.cmd.colorscheme("solarized-osaka")
 -- vim.cmd.colorscheme("catppuccin")
