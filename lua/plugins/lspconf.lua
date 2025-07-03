@@ -10,7 +10,7 @@ return {
     config = function()
       local insArr = {
           "lua_ls",
-          "qmlls",
+          -- "qmlls", --  Needs manual install with Mason for some reason (same name: qmlls)
       }
       if cmdExists("npm") then
         table.insert(insArr, "yamlls")
