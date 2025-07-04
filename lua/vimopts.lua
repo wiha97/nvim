@@ -25,6 +25,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end
 })
 
+-- Resize splits with terminal
+vim.api.nvim_create_autocmd('VimResized', {
+  callback = function(ev)
+    vim.cmd("wincmd =")
+  end,
+})
+
 --  Selection copy <3
 vim.api.nvim_create_autocmd("CursorMoved", {
   desc = "Keep * synced with selection",
