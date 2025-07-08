@@ -23,6 +23,10 @@ return {
       if cmdExists("javac") then
         table.insert(insArr, "jdtls")
       end
+      if cmdExists("dotnet") then
+        table.insert(insArr, "omnisharp")
+        -- table.insert(insArr, "roslyn-ls")
+      end
 
       require("mason-lspconfig").setup({
         ensure_installed= insArr,
