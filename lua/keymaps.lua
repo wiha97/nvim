@@ -55,6 +55,9 @@ vim.api.nvim_set_keymap('v', '<leader>s', '', { callback = split_line_at_char, d
 vim.keymap.set({ "n", "i" }, "<C-e>", "<C-c>:Neotree toggle left<CR>", { silent = true })
 vim.keymap.set({ "n", "i" }, "<A-e>", "<C-c>:Neotree toggle right<CR>", { silent = true })
 
+-- Toggle Twilight
+map('n', '<A-t>', '<Cmd>Twilight<CR>', opts)
+
 --  BarBar
 
 -- Move to previous/next
