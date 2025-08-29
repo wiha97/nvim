@@ -13,14 +13,39 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 		config = function()
 			-- This is your opts table
-			require("telescope").setup({
+			local scope = require("telescope");
+      local actions = scope.actions;
+
+      scope.setup({
 				pickers = {
 					find_files = {
 						hidden = true,
 						follow = true,
+            -- theme = "dropdown",
 					},
 				},
 				defaults = {
+          path_display = {
+            shorten = 3,
+            truncate = 2
+          },
+          layout_strategy = 'flex',
+          layout_config = {
+            vertical = {
+              preview_height = 0.7,
+              width = 0.8,
+              height = 0.95
+            },
+            horizontal = {
+              -- prompt_position = "top"
+              width = 0.95,
+              height = 0.95,
+              -- preview_width = 0.4
+            },
+          },
+          -- layout_config = {
+          --   vertical = { width = 0.8 }
+          -- },
 					file_ignore_patterns = {
 						".git/",
 					},
