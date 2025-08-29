@@ -63,10 +63,10 @@ return {
           filetypes = { "typescript", "javascript", "js"},
           root_dir = function() return vim.loop.cwd() end
         }),
-        lspc.qmlls.setup({
-          capabilities = caps,
-          cmd = {"qmlls","-E"}
-        }),
+        -- lspc.qmlls.setup({
+        --   capabilities = caps,
+        --   cmd = {"qmlls","-E"}
+        -- }),
         lspc.bashls.setup({
           capabilities = caps,
           cmd = { "bash-language-server", "start" },
