@@ -4,6 +4,9 @@ local function setmap(modes, map, action)
   vim.keymap.set(modes, map, action, opts)
 end
 
+-- Surround
+-- map("n", "<A-s>", "ciw\"")
+
 --  Toggles in-line diagnostic text
 local function toggleDiag()
   local isToggled = not vim.diagnostic.config().virtual_text
@@ -70,7 +73,11 @@ map('n', '<leader>s', '<Cmd>vsplit<CR><C-w>w', opts)
 map('n', '<A-l>', '<Cmd>vertical resize +5<CR>', opts)
 map('n', '<A-h>', '<Cmd>vertical resize -5<CR>', opts)
 
+-- Shebang
+map('n', '<leader>!', 'i#!/bin/sh<Return><Return>', opts)
 
+-- Docker
+map('n', '<leader>mcr', 'cwmcr.microsoft.com/dotnet/', opts)
 
 --  Gitsigns
 vim.keymap.set({'n', 'i'}, '<C-g>', '<Cmd>Gitsigns preview_hunk<CR>', opts)
